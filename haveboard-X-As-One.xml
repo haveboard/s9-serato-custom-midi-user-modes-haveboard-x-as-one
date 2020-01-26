@@ -813,21 +813,6 @@ If you use any of this code, please keep all code comments with credits and lice
         </userio>
     </control><!--Left Deck Auto Roll 1/4-->
     <control channel="12" event_type="Note On" control="22">
-        <!--<userio event="click">
-            <auto_loop_roll_specific_length deck_set="Default" deck_id="0" slot_id="4">
-                <translation action_on="any" behaviour="explicit"/>
-            </auto_loop_roll_specific_length>
-        </userio>
-        <userio event="output">
-            <auto_loop_roll_specific_length deck_set="Default" deck_id="0" slot_id="4">
-                <translation action_on="any">
-                    <alias name="selected" value="0"/>
-                    <alias name="on" value="64"/>
-                    <alias name="off" value="22"/>
-                </translation>
-            </auto_loop_roll_specific_length>
-        </userio>-->
-        
         <userio event="click">
             <sample_player_slot_play deck_set="Sample Player" deck_id="0" slot_id="0">
                 <translation action_on="any" behaviour="explicit"/>
@@ -841,23 +826,8 @@ If you use any of this code, please keep all code comments with credits and lice
                 </translation>
             </sample_player_slot_play>
         </userio>
-    </control><!--WAS Left Deck Auto Roll 1/2 NOW sample slot 1-->
+    </control><!--sample slot 1-->
     <control channel="12" event_type="Note On" control="23">
-        <!--        <userio event="click">
-            <auto_loop_roll_specific_length deck_set="Default" deck_id="0" slot_id="5">
-                <translation action_on="any" behaviour="explicit"/>
-            </auto_loop_roll_specific_length>
-        </userio>
-        <userio event="output">
-            <auto_loop_roll_specific_length deck_set="Default" deck_id="0" slot_id="5">
-                <translation action_on="any">
-                    <alias name="selected" value="0"/>
-                    <alias name="on" value="64"/>
-                    <alias name="off" value="21"/>
-                </translation>
-            </auto_loop_roll_specific_length>
-        </userio>-->
-        
         <userio event="click">
             <sample_player_slot_play deck_set="Sample Player" deck_id="1" slot_id="0">
                 <translation action_on="any" behaviour="explicit"/>
@@ -871,24 +841,9 @@ If you use any of this code, please keep all code comments with credits and lice
                 </translation>
             </sample_player_slot_play>
         </userio>
-    </control><!--WAS Left Deck Auto Roll 1 NOW sample slot 2-->
+    </control><!--sample slot 2-->
     
     <control channel="13" event_type="Note On" control="20">
-        <!--<userio event="click">
-            <auto_loop_roll_specific_length deck_set="Default" deck_id="1" slot_id="5">
-                <translation action_on="any" behaviour="explicit"/>
-            </auto_loop_roll_specific_length>
-        </userio>
-        <userio event="output">
-            <auto_loop_roll_specific_length deck_set="Default" deck_id="1" slot_id="5">
-                <translation action_on="any">
-                    <alias name="selected" value="0"/>
-                    <alias name="on" value="64"/>
-                    <alias name="off" value="21"/>
-                </translation>
-            </auto_loop_roll_specific_length>
-        </userio>-->
-        
         <userio event="click">
             <sample_player_slot_play deck_set="Sample Player" deck_id="2" slot_id="0">
                 <translation action_on="any" behaviour="explicit"/>
@@ -908,22 +863,8 @@ If you use any of this code, please keep all code comments with credits and lice
                 </translation>
             </sample_player_slot_play>-->
         </userio>
-    </control><!--WAS Right Deck Auto Roll 1 NOW right deck play next-->
-    <control channel="13" event_type="Note On" control="21">
-        <!--<userio event="click">
-            <auto_loop_roll_specific_length deck_set="Default" deck_id="1" slot_id="4">
-                <translation action_on="any" behaviour="explicit"/>
-            </auto_loop_roll_specific_length>
-        </userio>
-        <userio event="output">
-            <auto_loop_roll_specific_length deck_set="Default" deck_id="1" slot_id="4">
-                <translation action_on="any">
-                    <alias name="selected" value="0"/>
-                    <alias name="on" value="64"/>
-                    <alias name="off" value="22"/>
-                </translation>
-            </auto_loop_roll_specific_length>
-        </userio>-->
+    </control><!--sample slot 3-->
+    <control channel="13" event_type="Note On" control="21">  
         <userio event="click">
             <sample_player_slot_play deck_set="Sample Player" deck_id="3" slot_id="0">
                 <translation action_on="any" behaviour="explicit"/>
@@ -936,15 +877,8 @@ If you use any of this code, please keep all code comments with credits and lice
                     <alias name="off" value="1"/>
                 </translation>
             </sample_player_slot_play>
-            <!--<sample_player_slot_play deck_set="Sample Player" deck_id="3" slot_id="0">
-                <translation action_on="any">
-                    <alias name="on" value="127"/>
-                    <alias name="off" value="0"/>
-                </translation>
-            </sample_player_slot_play>-->
         </userio>
-    
-    </control><!--WAS Right Deck Auto Roll 1/2-->
+    </control><!--sample slot 4-->
     <control channel="13" event_type="Note On" control="22">
         <userio event="click">
             <auto_loop_roll_specific_length deck_set="Default" deck_id="1" slot_id="3">
@@ -978,7 +912,6 @@ If you use any of this code, please keep all code comments with credits and lice
         </userio>
     </control><!--Right Deck Auto Roll 1/8-->
 <!--End User Mode  2-->
-
 
 <!--DJ AS-ONE Pitch Play - 5 Cues , key lock, pitch down, pitch up -->
 <!--User Mode 3-->
@@ -1422,7 +1355,6 @@ If you use any of this code, please keep all code comments with credits and lice
             </dvs_internal_mode>
         </userio>
     </control>
-
 
     <control channel="1" event_type="Note On" control="55">
         <userio event="click">
