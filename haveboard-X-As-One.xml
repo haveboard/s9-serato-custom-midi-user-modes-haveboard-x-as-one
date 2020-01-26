@@ -55,6 +55,9 @@ Ricardo Balderas / Unit27 for his mapping
 [ http://www.unit27music.com/product/unit27-s9-mapping/ ]
 [ https://www.youtube.com/watch?v=s0j6V_-nl5A ]
 
+DJ Divine Justice Mappping:
+https://www.youtube.com/watch?v=VuEjMN-lXjw
+
 If I am forgetting anyone please let me know. me@djhavebopard.com
 
 This is for the love of DJing, turntablism, and the community that supports it.
@@ -919,23 +922,17 @@ If you use any of this code, please keep all code comments with credits and lice
     <!--parameters-->
     <control channel="1" event_type="Note On" control="46">
         <userio event="click">
-            <auto_loop_roll deck_set="Default" deck_id="0" slot_id="0">
+            <auto_loop_roll_specific_length deck_set="Default" deck_id="0" slot_id="3">
                 <translation action_on="any" behaviour="explicit"/>
-            </auto_loop_roll>
+            </auto_loop_roll_specific_length>
         </userio>
         <userio event="output">
-            <auto_loop_roll deck_set="Default" deck_id="0" slot_id="0">
+            <auto_loop_roll_specific_length deck_set="Default" deck_id="0" slot_id="3">
                 <translation action_on="any">
                     <alias name="on" value="127"/>
                     <alias name="off" value="0"/>
                 </translation>
-            </auto_loop_roll>
-            <auto_loop_roll deck_set="Default" deck_id="0" slot_id="0">
-                <translation action_on="any">
-                    <alias name="on" value="127"/>
-                    <alias name="off" value="0"/>
-                </translation>
-            </auto_loop_roll>
+            </auto_loop_roll_specific_length>
         </userio>
     </control><!--left left param left deck 1/4 loop roll-->
     <control channel="1" event_type="Note On" control="54">
@@ -970,9 +967,9 @@ If you use any of this code, please keep all code comments with credits and lice
     </control><!--right left param right deck mute / silent cue right -->
     <control channel="2" event_type="Note On" control="54">
         <userio event="click">
-            <auto_loop_roll deck_set="Default" deck_id="1" slot_id="0">
+            <auto_loop_roll_specific_length deck_set="Default" deck_id="1" slot_id="3">
                 <translation action_on="any" behaviour="explicit"/>
-            </auto_loop_roll>
+            </auto_loop_roll_specific_length>
         </userio>
         <userio event="output">
             <auto_loop_roll deck_set="Default" deck_id="1" slot_id="0">
@@ -981,12 +978,12 @@ If you use any of this code, please keep all code comments with credits and lice
                     <alias name="off" value="0"/>
                 </translation>
             </auto_loop_roll>
-            <auto_loop_roll deck_set="Default" deck_id="1" slot_id="0">
+            <auto_loop_roll_specific_length deck_set="Default" deck_id="1" slot_id="3">
                 <translation action_on="any">
                     <alias name="on" value="127"/>
                     <alias name="off" value="0"/>
                 </translation>
-            </auto_loop_roll>
+            </auto_loop_roll_specific_length>
         </userio>
     </control><!--right left param right deck 1/4 loop roll-->
 

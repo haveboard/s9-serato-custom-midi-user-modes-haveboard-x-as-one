@@ -33,25 +33,28 @@ SOFTWARE.
 
 CREDITS & THANKS:
 
-Radikarl [ http://www.radikarl.de/freecontent ]
+**Radikarl** [ http://www.radikarl.de/freecontent ]
 
 - for paving the way with his early mappings released as free content to the DJ Community
 
-Quan Leongrae
+**Quan Leongrae**
 
 - light output colors
 - no backlighting when there is no cue point
 
-DJ As-One
+**DJ As-One**
 
 - for his custom mode contribution and allowing me to release this
 
-Ivan Avalos (Dj Supafly) [ http://www.dj-supafly.com/ ]
-- mute / silent cue
+**Ivan Avalos (Dj Supafly)** [ http://www.dj-supafly.com/ ]
+- mute / silent
 
-Ricardo Balderas / Unit27 for his mapping
+**Ricardo Balderas / Unit27** for his mapping
 - http://www.unit27music.com/product/unit27-s9-mapping/
 - https://www.youtube.com/watch?v=s0j6V_-nl5A
+
+**DJ Divine Justice** Mappping:
+https://www.youtube.com/watch?v=VuEjMN-lXjw
 
 If I am forgetting anyone please let me know. me@djhavebopard.com
 
