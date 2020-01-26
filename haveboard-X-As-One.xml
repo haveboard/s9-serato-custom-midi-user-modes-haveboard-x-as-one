@@ -1,0 +1,1791 @@
+<!--
+Title: haveboard X As-One Midi Mapping
+URL: https://github.com/haveboard/s9-serato-custom-midi-user-modes-haveboard-x-as-one
+Description: A hybrid of my original S9 mapping [ https://github.com/haveboard/s9-serato-custom-midi-user-modes-1 ]
+combined with a mapping I helped DJ As-One compile which he used in his 2018 Goldie Awards Submission 
+DJAS1 | 2018 GOLDIE AWARDS | Submission [ https://www.youtube.com/watch?v=cofLZM99xkc ]
+along with additional features such as a transport mode, and special functions for the parameters for each mode
+including mute (also called silent cue)(um3), instant doubles(um2, um4), load next (um2), 1/4 loop roll (um2,um3), sample bank sections (um1)
+
+created by dj haveboard https://djhaveboard.com
+
+Hey DJs!! This license basically says you can use this any way you
+want and even sell it but leave the license and credits at the top of this file
+
+Version 1.0.1
+
+MIT License
+
+Copyright (c) 2020 Jonathan Finnegan & DJ As-One
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+CREDITS & THANKS:
+
+Radikarl [ http://www.radikarl.de/freecontent ]
+-for paving the way with his early mappings released as free content to the DJ Community
+
+Quan Leongrae
+-light output colors
+-no backlighting when there is no cue point
+
+DJ As-One
+- for his custom mode contribution and allowing me to release this
+
+Ivan Avalos (Dj Supafly) [ http://www.dj-supafly.com/ ]
+- mute / silent cue
+
+Ricardo Balderas / Unit27 for his mapping
+[ http://www.unit27music.com/product/unit27-s9-mapping/ ]
+[ https://www.youtube.com/watch?v=s0j6V_-nl5A ]
+
+If I am forgetting anyone please let me know. me@djhavebopard.com
+
+This is for the love of DJing, turntablism, and the community that supports it.
+
+If you use any of this code, please keep all code comments with credits and licensing intake. Thanks!
+
+-->
+<midi app=" 2.3.1.15">
+<!--upfaders control sample deck Volume-->
+
+    <control channel="1" event_type="Control Change" control="19">
+        <userio event="click">
+            <sample_player_volume deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </sample_player_volume>
+        </userio>
+    </control>
+    <control channel="2" event_type="Control Change" control="19">
+        <userio event="click">
+            <sample_player_volume deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </sample_player_volume>
+        </userio>
+    </control>
+    <!--end upfaders control sample deck Volume -->
+
+    <!-- MIC EQ LO is left deck pitch -->
+    <control channel="7" event_type="Control Change" data_type="Absolute 7" control="5">
+        <userio event="click">
+            <per_deck_pitch_slider_pickup_position deck_set="Default" deck_id="0" slot_id="2">
+                <translation action_on="any" behaviour="explicit"/>
+            </per_deck_pitch_slider_pickup_position>
+            <pitch_slider deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </pitch_slider>
+        </userio>
+    </control>
+    <!-- END MIC EQ LO is left deck pitch -->
+    <!-- MIC EQ HI is right deck pitch -->
+    <control channel="7" event_type="Control Change" data_type="Absolute 7" control="4">
+        <userio event="click">
+            <per_deck_pitch_slider_pickup_position deck_set="Default" deck_id="1" slot_id="2">
+                <translation action_on="any" behaviour="explicit"/>
+            </per_deck_pitch_slider_pickup_position>
+            <pitch_slider deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </pitch_slider>
+        </userio>
+    </control>
+    <!-- END MIC EQ HI is right deck pitch -->
+
+<!--User Mode 1-->
+<!--parameters-->
+    <control channel="1" event_type="Note On" control="44">
+        <userio event="click">
+            <sample_player_bank_select deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any" behaviour="static" static_value="Bank A"/>
+            </sample_player_bank_select>
+        </userio>
+        <userio event="output">
+            <sample_player_bank_select deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any">
+                    <alias name="Bank A" value="127"/>
+                    <alias name="Bank B" value="0"/>
+                    <alias name="Bank C" value="0"/>
+                    <alias name="Bank D" value="0"/>
+                </translation>
+            </sample_player_bank_select>
+        </userio>
+    </control><!-- left left parameter --><!--Select Sample Bank A-->
+    <control channel="1" event_type="Note On" control="52">
+        <userio event="click">
+            <sample_player_bank_select deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any" behaviour="static" static_value="Bank B"/>
+            </sample_player_bank_select>
+        </userio>
+        <userio event="output">
+            <sample_player_bank_select deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any">
+                    <alias name="Bank A" value="0"/>
+                    <alias name="Bank B" value="127"/>
+                    <alias name="Bank C" value="0"/>
+                    <alias name="Bank D" value="0"/>
+                </translation>
+            </sample_player_bank_select>
+        </userio>
+    </control><!-- left right parameter --><!--Select Sample Bank B-->
+    <control channel="2" event_type="Note On" control="44">
+        <userio event="click">
+            <sample_player_bank_select deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any" behaviour="static" static_value="Bank C"/>
+            </sample_player_bank_select>
+        </userio>
+        <userio event="output">
+            <sample_player_bank_select deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any">
+                    <alias name="Bank A" value="0"/>
+                    <alias name="Bank B" value="0"/>
+                    <alias name="Bank C" value="127"/>
+                    <alias name="Bank D" value="0"/>
+                </translation>
+            </sample_player_bank_select>
+        </userio>
+    </control><!-- right left parameter --><!--Select Sample Bank C-->
+    <control channel="2" event_type="Note On" control="52">
+        <userio event="click">
+            <sample_player_bank_select deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any" behaviour="static" static_value="Bank D"/>
+            </sample_player_bank_select>
+        </userio>
+        <userio event="output">
+            <sample_player_bank_select deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any">
+                    <alias name="Bank A" value="0"/>
+                    <alias name="Bank B" value="0"/>
+                    <alias name="Bank C" value="0"/>
+                    <alias name="Bank D" value="127"/>
+                </translation>
+            </sample_player_bank_select>
+        </userio>
+    </control><!-- right right parameter --><!--Select Sample Bank D-->
+
+<!--PADS-->
+    <control channel="12" event_type="Note On" control="0">
+        <userio event="click">
+            <cue_point deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </cue_point>
+        </userio>
+        <userio event="output">
+            <cue_point_set deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="42"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </cue_point_set>
+        </userio>
+    </control><!--Left Deck Cue 1-->
+    <control channel="12" event_type="Note On" control="1">
+        <userio event="click">
+            <cue_point deck_set="Default" deck_id="0" slot_id="1">
+                <translation action_on="any" behaviour="explicit"/>
+            </cue_point>
+        </userio>
+        <userio event="output">
+            <cue_point_set deck_set="Default" deck_id="0" slot_id="1">
+                <translation action_on="any">
+                    <alias name="on" value="38"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </cue_point_set>
+        </userio>
+    </control><!--Left Deck Cue 2-->
+    <control channel="12" event_type="Note On" control="2">
+        <userio event="click">
+            <cue_point deck_set="Default" deck_id="0" slot_id="2">
+                <translation action_on="any" behaviour="explicit"/>
+            </cue_point>
+        </userio>
+        <userio event="output">
+            <cue_point_set deck_set="Default" deck_id="0" slot_id="2">
+                <translation action_on="any">
+                    <alias name="on" value="60"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </cue_point_set>
+        </userio>
+    </control><!--Left Deck Cue 3-->
+    <control channel="12" event_type="Note On" control="3">
+        <userio event="click">
+            <cue_point deck_set="Default" deck_id="0" slot_id="3">
+                <translation action_on="any" behaviour="explicit"/>
+            </cue_point>
+        </userio>
+        <userio event="output">
+            <cue_point_set deck_set="Default" deck_id="0" slot_id="3">
+                <translation action_on="any">
+                    <alias name="on" value="32"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </cue_point_set>
+        </userio>
+    </control><!--Left Deck Cue 4-->
+    <control channel="12" event_type="Note On" control="4">
+        <userio event="click">
+            <sample_player_slot_play deck_set="Sample Player" deck_id="0" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </sample_player_slot_play>
+        </userio>
+        <userio event="output">
+            <sample_player_slot_play deck_set="Sample Player" deck_id="0" slot_id="1">
+                <translation action_on="any">
+                    <alias name="on" value="9"/>
+                    <alias name="off" value="1"/>
+                </translation>
+            </sample_player_slot_play>
+            <sample_player_slot_play deck_set="Sample Player" deck_id="0" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="0"/>
+                </translation>
+            </sample_player_slot_play>
+        </userio>
+    </control><!--Left Deck Sample 1-->
+    <control channel="12" event_type="Note On" control="5">
+        <userio event="click">
+            <sample_player_slot_play deck_set="Sample Player" deck_id="1" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </sample_player_slot_play>
+        </userio>
+        <userio event="output">
+            <sample_player_slot_play deck_set="Sample Player" deck_id="1" slot_id="1">
+                <translation action_on="any">
+                    <alias name="on" value="10"/>
+                    <alias name="off" value="2"/>
+                </translation>
+            </sample_player_slot_play>
+            <sample_player_slot_play deck_set="Sample Player" deck_id="1" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="0"/>
+                </translation>
+            </sample_player_slot_play>
+        </userio>
+    </control><!--Left Deck Sample 2-->
+    <control channel="12" event_type="Note On" control="6">
+        <userio event="click">
+            <sample_player_slot_play deck_set="Sample Player" deck_id="2" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </sample_player_slot_play>
+        </userio>
+        <userio event="output">
+            <sample_player_slot_play deck_set="Sample Player" deck_id="2" slot_id="1">
+                <translation action_on="any">
+                    <alias name="on" value="11"/>
+                    <alias name="off" value="3"/>
+                </translation>
+            </sample_player_slot_play>
+            <sample_player_slot_play deck_set="Sample Player" deck_id="2" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="0"/>
+                </translation>
+            </sample_player_slot_play>
+        </userio>
+    </control><!--Left Deck Sample 3-->
+    <control channel="12" event_type="Note On" control="7">
+        <userio event="click">
+            <sample_player_slot_play deck_set="Sample Player" deck_id="3" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </sample_player_slot_play>
+        </userio>
+        <userio event="output">
+            <sample_player_slot_play deck_set="Sample Player" deck_id="3" slot_id="1">
+                <translation action_on="any">
+                    <alias name="on" value="12"/>
+                    <alias name="off" value="4"/>
+                </translation>
+            </sample_player_slot_play>
+            <sample_player_slot_play deck_set="Sample Player" deck_id="3" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="0"/>
+                </translation>
+            </sample_player_slot_play>
+        </userio>
+    </control><!--Left Deck Sample 4-->
+    
+    <control channel="12" event_type="Note On" control="8">
+        <userio event="click">
+            <cue_point_delete deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="press" behaviour="explicit"/>
+            </cue_point_delete>
+        </userio>
+    </control><!--Left Deck Shift Delete Cue 1-->
+    <control channel="12" event_type="Note On" control="9">
+        <userio event="click">
+            <cue_point_delete deck_set="Default" deck_id="0" slot_id="1">
+                <translation action_on="press" behaviour="explicit"/>
+            </cue_point_delete>
+        </userio>
+    </control><!--Left Deck Shift Delete Cue 2-->
+    <control channel="12" event_type="Note On" control="10">
+        <userio event="click">
+            <cue_point_delete deck_set="Default" deck_id="0" slot_id="2">
+                <translation action_on="press" behaviour="explicit"/>
+            </cue_point_delete>
+        </userio>
+    </control><!--Left Deck Shift Delete Cue 3-->
+    <control channel="12" event_type="Note On" control="11">
+        <userio event="click">
+            <cue_point_delete deck_set="Default" deck_id="0" slot_id="3">
+                <translation action_on="press" behaviour="explicit"/>
+            </cue_point_delete>
+        </userio>
+    </control><!--Left Deck Shift Delete Cue 4-->
+    
+    <control channel="13" event_type="Note On" control="0">
+        <userio event="click">
+            <cue_point deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </cue_point>
+        </userio>
+        <userio event="output">
+            <cue_point_set deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="42"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </cue_point_set>
+        </userio>
+    </control><!--Right Deck Cue 1-->
+    <control channel="13" event_type="Note On" control="1">
+        <userio event="click">
+            <cue_point deck_set="Default" deck_id="1" slot_id="1">
+                <translation action_on="any" behaviour="explicit"/>
+            </cue_point>
+        </userio>
+        <userio event="output">
+            <cue_point_set deck_set="Default" deck_id="1" slot_id="1">
+                <translation action_on="any">
+                    <alias name="on" value="38"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </cue_point_set>
+        </userio>
+    </control><!--Right Deck Cue 2-->
+    <control channel="13" event_type="Note On" control="2">
+        <userio event="click">
+            <cue_point deck_set="Default" deck_id="1" slot_id="2">
+                <translation action_on="any" behaviour="explicit"/>
+            </cue_point>
+        </userio>
+        <userio event="output">
+            <cue_point_set deck_set="Default" deck_id="1" slot_id="2">
+                <translation action_on="any">
+                    <alias name="on" value="60"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </cue_point_set>
+        </userio>
+    </control><!--Right Deck Cue 3-->
+    <control channel="13" event_type="Note On" control="3">
+        <userio event="click">
+            <cue_point deck_set="Default" deck_id="1" slot_id="3">
+                <translation action_on="any" behaviour="explicit"/>
+            </cue_point>
+        </userio>
+        <userio event="output">
+            <cue_point_set deck_set="Default" deck_id="1" slot_id="3">
+                <translation action_on="any">
+                    <alias name="on" value="32"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </cue_point_set>
+        </userio>
+    </control><!--Right Deck Cue 4-->
+    
+    <control channel="13" event_type="Note On" control="4">
+        <userio event="click">
+            <sample_player_slot_play deck_set="Sample Player" deck_id="4" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </sample_player_slot_play>
+        </userio>
+        <userio event="output">
+            <sample_player_slot_play deck_set="Sample Player" deck_id="4" slot_id="1">
+                <translation action_on="any">
+                    <alias name="on" value="13"/>
+                    <alias name="off" value="5"/>
+                </translation>
+            </sample_player_slot_play>
+            <sample_player_slot_play deck_set="Sample Player" deck_id="4" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="0"/>
+                </translation>
+            </sample_player_slot_play>
+        </userio>
+    </control><!--Right Deck Sample 5-->
+    <control channel="13" event_type="Note On" control="5">
+        <userio event="click">
+            <sample_player_slot_play deck_set="Sample Player" deck_id="5" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </sample_player_slot_play>
+        </userio>
+        <userio event="output">
+            <sample_player_slot_play deck_set="Sample Player" deck_id="5" slot_id="1">
+                <translation action_on="any">
+                    <alias name="on" value="14"/>
+                    <alias name="off" value="6"/>
+                </translation>
+            </sample_player_slot_play>
+            <sample_player_slot_play deck_set="Sample Player" deck_id="5" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="0"/>
+                </translation>
+            </sample_player_slot_play>
+        </userio>
+    </control><!--Right Deck Sample 6-->
+    <control channel="13" event_type="Note On" control="7">
+        <userio event="click">
+            <sample_player_slot_play deck_set="Sample Player" deck_id="7" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </sample_player_slot_play>
+        </userio>
+        <userio event="output">
+            <sample_player_slot_play deck_set="Sample Player" deck_id="7" slot_id="1">
+                <translation action_on="any">
+                    <alias name="on" value="15"/>
+                    <alias name="off" value="7"/>
+                </translation>
+            </sample_player_slot_play>
+            <sample_player_slot_play deck_set="Sample Player" deck_id="7" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="0"/>
+                </translation>
+            </sample_player_slot_play>
+        </userio>
+    </control><!--Right Deck Sample 7-->
+    <control channel="13" event_type="Note On" control="6">
+        <userio event="click">
+            <sample_player_slot_play deck_set="Sample Player" deck_id="6" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </sample_player_slot_play>
+        </userio>
+        <userio event="output">
+            <sample_player_slot_play deck_set="Sample Player" deck_id="6" slot_id="1">
+                <translation action_on="any">
+                    <alias name="on" value="16"/>
+                    <alias name="off" value="8"/>
+                </translation>
+            </sample_player_slot_play>
+            <sample_player_slot_play deck_set="Sample Player" deck_id="6" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="0"/>
+                </translation>
+            </sample_player_slot_play>
+        </userio>
+    </control><!--Right Deck Sample 8-->
+    <control channel="13" event_type="Note On" control="8">
+        <userio event="click">
+            <cue_point_delete deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="press" behaviour="explicit"/>
+            </cue_point_delete>
+        </userio>
+    </control><!--Right Deck Shift Delete Cue 1-->
+    <control channel="13" event_type="Note On" control="9">
+        <userio event="click">
+            <cue_point_delete deck_set="Default" deck_id="1" slot_id="1">
+                <translation action_on="press" behaviour="explicit"/>
+            </cue_point_delete>
+        </userio>
+    </control><!--Right Deck Shift Delete Cue 2-->
+    <control channel="13" event_type="Note On" control="10">
+        <userio event="click">
+            <cue_point_delete deck_set="Default" deck_id="1" slot_id="2">
+                <translation action_on="press" behaviour="explicit"/>
+            </cue_point_delete>
+        </userio>
+    </control><!--Right Deck Shift Delete Cue 3-->
+    <control channel="13" event_type="Note On" control="11">
+        <userio event="click">
+            <cue_point_delete deck_set="Default" deck_id="1" slot_id="3">
+                <translation action_on="press" behaviour="explicit"/>
+            </cue_point_delete>
+        </userio>
+    </control><!--Right Deck Shift Delete Cue 4-->
+<!--End User Mode  1-->
+    
+<!--User Mode 2-->
+<!-- Left Deck left side right param - instant doubles -->
+    <control channel="1" event_type="Note On" control="53">
+        <userio event="click">
+            <instant_double deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="press" behaviour="explicit"/>
+            </instant_double>
+        </userio>
+        <userio event="output">
+            <instant_double deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="0"/>
+                </translation>
+            </instant_double>
+        </userio>
+    </control>
+
+<!-- Right Deck right side left param - instant doubles -->
+    <control channel="2" event_type="Note On" control="45">
+        <userio event="click">
+            <instant_double deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="press" behaviour="explicit"/>
+            </instant_double>
+        </userio>
+        <userio event="output">
+            <instant_double deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="0"/>
+                </translation>
+            </instant_double>
+        </userio>
+    </control>
+
+<!-- left side left param advances left deck to next track
+	right side right param advances right deck to next track -->
+	
+    <control channel="1" event_type="Note On" control="45">
+        <userio event="click">
+            <next_track deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="press" behaviour="explicit"/>
+            </next_track>
+        </userio>
+        <userio event="output">
+            <next_track deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="0"/>
+                </translation>
+            </next_track>
+        </userio>
+    </control>
+    <control channel="2" event_type="Note On" control="53">
+        <userio event="click">
+            <next_track deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="press" behaviour="explicit"/>
+            </next_track>
+        </userio>
+        <userio event="output">
+            <next_track deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="0"/>
+                </translation>
+            </next_track>
+        </userio>
+    </control>
+
+<!-- END left side left param advances left deck to next track
+	right side right param advances right deck to next track -->
+
+    <!--PADS-->
+    <control channel="12" event_type="Note On" control="16">
+        <userio event="click">
+            <cue_point deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </cue_point>
+        </userio>
+        <userio event="output">
+            <cue_point_set deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="42"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </cue_point_set>
+        </userio>
+    </control><!--Left Deck Cue 1-->
+    <control channel="12" event_type="Note On" control="17">
+        <userio event="click">
+            <cue_point deck_set="Default" deck_id="0" slot_id="1">
+                <translation action_on="any" behaviour="explicit"/>
+            </cue_point>
+        </userio>
+        <userio event="output">
+            <cue_point_set deck_set="Default" deck_id="0" slot_id="1">
+                <translation action_on="any">
+                    <alias name="on" value="38"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </cue_point_set>
+        </userio>
+    </control><!--Left Deck Cue 2-->
+    <control channel="12" event_type="Note On" control="18">
+        <userio event="click">
+            <cue_point deck_set="Default" deck_id="0" slot_id="2">
+                <translation action_on="any" behaviour="explicit"/>
+            </cue_point>
+        </userio>
+        <userio event="output">
+            <cue_point_set deck_set="Default" deck_id="0" slot_id="2">
+                <translation action_on="any">
+                    <alias name="on" value="60"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </cue_point_set>
+        </userio>
+    </control><!--Left Deck Cue 3-->
+    <control channel="12" event_type="Note On" control="19">
+        <userio event="click">
+            <cue_point deck_set="Default" deck_id="0" slot_id="3">
+                <translation action_on="any" behaviour="explicit"/>
+            </cue_point>
+        </userio>
+        <userio event="output">
+            <cue_point_set deck_set="Default" deck_id="0" slot_id="3">
+                <translation action_on="any">
+                    <alias name="on" value="32"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </cue_point_set>
+        </userio>
+    </control><!--Left Deck Cue 4-->
+
+    <control channel="12" event_type="Note On" control="24">
+        <userio event="click">
+            <cue_point_delete deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="press" behaviour="explicit"/>
+            </cue_point_delete>
+        </userio>
+    </control><!--Left Deck Shift Delete Cue 1-->
+    <control channel="12" event_type="Note On" control="25">
+        <userio event="click">
+            <cue_point_delete deck_set="Default" deck_id="0" slot_id="1">
+                <translation action_on="press" behaviour="explicit"/>
+            </cue_point_delete>
+        </userio>
+    </control><!--Left Deck Shift Delete Cue 2-->
+    <control channel="12" event_type="Note On" control="26">
+        <userio event="click">
+            <cue_point_delete deck_set="Default" deck_id="0" slot_id="2">
+                <translation action_on="press" behaviour="explicit"/>
+            </cue_point_delete>
+        </userio>
+    </control><!--Left Deck Shift Delete Cue 3-->
+    <control channel="12" event_type="Note On" control="27">
+        <userio event="click">
+            <cue_point_delete deck_set="Default" deck_id="0" slot_id="3">
+                <translation action_on="press" behaviour="explicit"/>
+            </cue_point_delete>
+        </userio>
+    </control><!--Left Deck Shift Delete Cue 4-->
+
+    <control channel="13" event_type="Note On" control="16">
+        <userio event="click">
+            <cue_point deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </cue_point>
+        </userio>
+        <userio event="output">
+            <cue_point_set deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="42"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </cue_point_set>
+        </userio>
+    </control><!--Right Deck Cue 1-->
+    <control channel="13" event_type="Note On" control="17">
+        <userio event="click">
+            <cue_point deck_set="Default" deck_id="1" slot_id="1">
+                <translation action_on="any" behaviour="explicit"/>
+            </cue_point>
+        </userio>
+        <userio event="output">
+            <cue_point_set deck_set="Default" deck_id="1" slot_id="1">
+                <translation action_on="any">
+                    <alias name="on" value="38"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </cue_point_set>
+        </userio>
+    </control><!--Right Deck Cue 2-->
+    <control channel="13" event_type="Note On" control="18">
+        <userio event="click">
+            <cue_point deck_set="Default" deck_id="1" slot_id="2">
+                <translation action_on="any" behaviour="explicit"/>
+            </cue_point>
+        </userio>
+        <userio event="output">
+            <cue_point_set deck_set="Default" deck_id="1" slot_id="2">
+                <translation action_on="any">
+                    <alias name="on" value="60"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </cue_point_set>
+        </userio>
+    </control><!--Right Deck Cue 3-->
+    <control channel="13" event_type="Note On" control="19">
+        <userio event="click">
+            <cue_point deck_set="Default" deck_id="1" slot_id="3">
+                <translation action_on="any" behaviour="explicit"/>
+            </cue_point>
+        </userio>
+        <userio event="output">
+            <cue_point_set deck_set="Default" deck_id="1" slot_id="3">
+                <translation action_on="any">
+                    <alias name="on" value="32"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </cue_point_set>
+        </userio>
+    </control><!--Right Deck Cue 4-->
+    
+    <control channel="13" event_type="Note On" control="24">
+        <userio event="click">
+            <cue_point_delete deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="press" behaviour="explicit"/>
+            </cue_point_delete>
+        </userio>
+    </control><!--Right Deck Shift Delete Cue 1-->
+    <control channel="13" event_type="Note On" control="25">
+        <userio event="click">
+            <cue_point_delete deck_set="Default" deck_id="1" slot_id="1">
+                <translation action_on="press" behaviour="explicit"/>
+            </cue_point_delete>
+        </userio>
+    </control><!--Right Deck Shift Delete Cue 2-->
+    <control channel="13" event_type="Note On" control="26">
+        <userio event="click">
+            <cue_point_delete deck_set="Default" deck_id="1" slot_id="2">
+                <translation action_on="press" behaviour="explicit"/>
+            </cue_point_delete>
+        </userio>
+    </control><!--Right Deck Shift Delete Cue 3-->
+    <control channel="13" event_type="Note On" control="27">
+        <userio event="click">
+            <cue_point_delete deck_set="Default" deck_id="1" slot_id="3">
+                <translation action_on="press" behaviour="explicit"/>
+            </cue_point_delete>
+        </userio>
+    </control><!--Right Deck Shift Delete Cue 4-->
+    
+    <control channel="12" event_type="Note On" control="20">
+        <userio event="click">
+            <auto_loop_roll_specific_length deck_set="Default" deck_id="0" slot_id="2">
+                <translation action_on="any" behaviour="explicit"/>
+            </auto_loop_roll_specific_length>
+        </userio>
+        <userio event="output">
+            <auto_loop_roll_specific_length deck_set="Default" deck_id="0" slot_id="2">
+                <translation action_on="any">
+                    <alias name="selected" value="0"/>
+                    <alias name="on" value="64"/>
+                    <alias name="off" value="24"/>
+                </translation>
+            </auto_loop_roll_specific_length>
+        </userio>
+    </control><!--Left Deck Auto Roll 1/8-->
+    <control channel="12" event_type="Note On" control="21">
+        <userio event="click">
+            <auto_loop_roll_specific_length deck_set="Default" deck_id="0" slot_id="3">
+                <translation action_on="any" behaviour="explicit"/>
+            </auto_loop_roll_specific_length>
+        </userio>
+        <userio event="output">
+            <auto_loop_roll_specific_length deck_set="Default" deck_id="0" slot_id="3">
+                <translation action_on="any">
+                    <alias name="selected" value="0"/>
+                    <alias name="on" value="64"/>
+                    <alias name="off" value="23"/>
+                </translation>
+            </auto_loop_roll_specific_length>
+        </userio>
+    </control><!--Left Deck Auto Roll 1/4-->
+    <control channel="12" event_type="Note On" control="22">
+        <!--<userio event="click">
+            <auto_loop_roll_specific_length deck_set="Default" deck_id="0" slot_id="4">
+                <translation action_on="any" behaviour="explicit"/>
+            </auto_loop_roll_specific_length>
+        </userio>
+        <userio event="output">
+            <auto_loop_roll_specific_length deck_set="Default" deck_id="0" slot_id="4">
+                <translation action_on="any">
+                    <alias name="selected" value="0"/>
+                    <alias name="on" value="64"/>
+                    <alias name="off" value="22"/>
+                </translation>
+            </auto_loop_roll_specific_length>
+        </userio>-->
+        
+        <userio event="click">
+            <sample_player_slot_play deck_set="Sample Player" deck_id="0" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </sample_player_slot_play>
+        </userio>
+        <userio event="output">
+            <sample_player_slot_play deck_set="Sample Player" deck_id="0" slot_id="1">
+                <translation action_on="any">
+                    <alias name="on" value="1"/>
+                    <alias name="off" value="1"/>
+                </translation>
+            </sample_player_slot_play>
+        </userio>
+    </control><!--WAS Left Deck Auto Roll 1/2 NOW sample slot 1-->
+    <control channel="12" event_type="Note On" control="23">
+        <!--        <userio event="click">
+            <auto_loop_roll_specific_length deck_set="Default" deck_id="0" slot_id="5">
+                <translation action_on="any" behaviour="explicit"/>
+            </auto_loop_roll_specific_length>
+        </userio>
+        <userio event="output">
+            <auto_loop_roll_specific_length deck_set="Default" deck_id="0" slot_id="5">
+                <translation action_on="any">
+                    <alias name="selected" value="0"/>
+                    <alias name="on" value="64"/>
+                    <alias name="off" value="21"/>
+                </translation>
+            </auto_loop_roll_specific_length>
+        </userio>-->
+        
+        <userio event="click">
+            <sample_player_slot_play deck_set="Sample Player" deck_id="1" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </sample_player_slot_play>
+        </userio>
+        <userio event="output">
+            <sample_player_slot_play deck_set="Sample Player" deck_id="1" slot_id="1">
+                <translation action_on="any">
+                    <alias name="on" value="1"/>
+                    <alias name="off" value="1"/>
+                </translation>
+            </sample_player_slot_play>
+        </userio>
+    </control><!--WAS Left Deck Auto Roll 1 NOW sample slot 2-->
+    
+    <control channel="13" event_type="Note On" control="20">
+        <!--<userio event="click">
+            <auto_loop_roll_specific_length deck_set="Default" deck_id="1" slot_id="5">
+                <translation action_on="any" behaviour="explicit"/>
+            </auto_loop_roll_specific_length>
+        </userio>
+        <userio event="output">
+            <auto_loop_roll_specific_length deck_set="Default" deck_id="1" slot_id="5">
+                <translation action_on="any">
+                    <alias name="selected" value="0"/>
+                    <alias name="on" value="64"/>
+                    <alias name="off" value="21"/>
+                </translation>
+            </auto_loop_roll_specific_length>
+        </userio>-->
+        
+        <userio event="click">
+            <sample_player_slot_play deck_set="Sample Player" deck_id="2" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </sample_player_slot_play>
+        </userio>
+        <userio event="output">
+            <sample_player_slot_play deck_set="Sample Player" deck_id="2" slot_id="1">
+                <translation action_on="any">
+                    <alias name="on" value="1"/>
+                    <alias name="off" value="1"/>
+                </translation>
+            </sample_player_slot_play>
+           <!-- <sample_player_slot_play deck_set="Sample Player" deck_id="2" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="0"/>
+                </translation>
+            </sample_player_slot_play>-->
+        </userio>
+    </control><!--WAS Right Deck Auto Roll 1 NOW right deck play next-->
+    <control channel="13" event_type="Note On" control="21">
+        <!--<userio event="click">
+            <auto_loop_roll_specific_length deck_set="Default" deck_id="1" slot_id="4">
+                <translation action_on="any" behaviour="explicit"/>
+            </auto_loop_roll_specific_length>
+        </userio>
+        <userio event="output">
+            <auto_loop_roll_specific_length deck_set="Default" deck_id="1" slot_id="4">
+                <translation action_on="any">
+                    <alias name="selected" value="0"/>
+                    <alias name="on" value="64"/>
+                    <alias name="off" value="22"/>
+                </translation>
+            </auto_loop_roll_specific_length>
+        </userio>-->
+        <userio event="click">
+            <sample_player_slot_play deck_set="Sample Player" deck_id="3" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </sample_player_slot_play>
+        </userio>
+        <userio event="output">
+            <sample_player_slot_play deck_set="Sample Player" deck_id="3" slot_id="1">
+                <translation action_on="any">
+                    <alias name="on" value="1"/>
+                    <alias name="off" value="1"/>
+                </translation>
+            </sample_player_slot_play>
+            <!--<sample_player_slot_play deck_set="Sample Player" deck_id="3" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="0"/>
+                </translation>
+            </sample_player_slot_play>-->
+        </userio>
+    
+    </control><!--WAS Right Deck Auto Roll 1/2-->
+    <control channel="13" event_type="Note On" control="22">
+        <userio event="click">
+            <auto_loop_roll_specific_length deck_set="Default" deck_id="1" slot_id="3">
+                <translation action_on="any" behaviour="explicit"/>
+            </auto_loop_roll_specific_length>
+        </userio>
+        <userio event="output">
+            <auto_loop_roll_specific_length deck_set="Default" deck_id="1" slot_id="3">
+                <translation action_on="any">
+                    <alias name="selected" value="0"/>
+                    <alias name="on" value="64"/>
+                    <alias name="off" value="23"/>
+                </translation>
+            </auto_loop_roll_specific_length>
+        </userio>
+    </control><!--Right Deck Auto Roll 1/4-->
+    <control channel="13" event_type="Note On" control="23">
+        <userio event="click">
+            <auto_loop_roll_specific_length deck_set="Default" deck_id="1" slot_id="2">
+                <translation action_on="any" behaviour="explicit"/>
+            </auto_loop_roll_specific_length>
+        </userio>
+        <userio event="output">
+            <auto_loop_roll_specific_length deck_set="Default" deck_id="1" slot_id="2">
+                <translation action_on="any">
+                    <alias name="selected" value="0"/>
+                    <alias name="on" value="64"/>
+                    <alias name="off" value="24"/>
+                </translation>
+            </auto_loop_roll_specific_length>
+        </userio>
+    </control><!--Right Deck Auto Roll 1/8-->
+<!--End User Mode  2-->
+
+
+<!--DJ AS-ONE Pitch Play - 5 Cues , key lock, pitch down, pitch up -->
+<!--User Mode 3-->
+    
+    <!--parameters-->
+    <control channel="1" event_type="Note On" control="46">
+        <userio event="click">
+            <auto_loop_roll deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </auto_loop_roll>
+        </userio>
+        <userio event="output">
+            <auto_loop_roll deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="0"/>
+                </translation>
+            </auto_loop_roll>
+            <auto_loop_roll deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="0"/>
+                </translation>
+            </auto_loop_roll>
+        </userio>
+    </control><!--left left param left deck 1/4 loop roll-->
+    <control channel="1" event_type="Note On" control="54">
+        <userio event="click">
+            <mute deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="press" behaviour="explicit"/>
+            </mute>
+        </userio>
+        <userio event="output">
+            <mute deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="0"/>
+                </translation>
+            </mute>
+        </userio>
+    </control><!--left right param left deck  mute / silent cue left-->
+    <control channel="2" event_type="Note On" control="46">
+        <userio event="click">
+            <mute deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="press" behaviour="explicit"/>
+            </mute>
+        </userio>
+        <userio event="output">
+            <mute deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="0"/>
+                </translation>
+            </mute>
+        </userio>
+    </control><!--right left param right deck mute / silent cue right -->
+    <control channel="2" event_type="Note On" control="54">
+        <userio event="click">
+            <auto_loop_roll deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </auto_loop_roll>
+        </userio>
+        <userio event="output">
+            <auto_loop_roll deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="0"/>
+                </translation>
+            </auto_loop_roll>
+            <auto_loop_roll deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="0"/>
+                </translation>
+            </auto_loop_roll>
+        </userio>
+    </control><!--right left param right deck 1/4 loop roll-->
+
+    <!--pads-->
+    <control channel="12" event_type="Note On" control="32">
+        <userio event="click">
+            <cue_point deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </cue_point>
+        </userio>
+        <userio event="output">
+            <cue_point_set deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="20"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </cue_point_set>
+        </userio>
+    </control><!--Left Deck 1--><!--CUE 1--><!--20/21-->
+    <control channel="12" event_type="Note On" control="33">
+        <userio event="click">
+            <cue_point deck_set="Default" deck_id="0" slot_id="1">
+                <translation action_on="any" behaviour="explicit"/>
+            </cue_point>
+        </userio>
+        <userio event="output">
+            <cue_point_set deck_set="Default" deck_id="0" slot_id="1">
+                <translation action_on="any">
+                    <alias name="on" value="20"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </cue_point_set>
+        </userio>
+    </control><!--Left Deck 2--><!--CUE 2-->
+    <control channel="12" event_type="Note On" control="34">
+        <userio event="click">
+            <cue_point deck_set="Default" deck_id="0" slot_id="2">
+                <translation action_on="any" behaviour="explicit"/>
+            </cue_point>
+        </userio>
+        <userio event="output">
+            <cue_point_set deck_set="Default" deck_id="0" slot_id="2">
+                <translation action_on="any">
+                    <alias name="on" value="20"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </cue_point_set>
+        </userio>
+    </control><!--Left Deck 3--><!--CUE 3-->
+    <control channel="12" event_type="Note On" control="35">
+        <userio event="click">
+            <cue_point deck_set="Default" deck_id="0" slot_id="3">
+                <translation action_on="any" behaviour="explicit"/>
+            </cue_point>
+        </userio>
+        <userio event="output">
+            <cue_point_set deck_set="Default" deck_id="0" slot_id="3">
+                <translation action_on="any">
+                    <alias name="on" value="20"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </cue_point_set>
+        </userio>
+    </control><!--Left Deck 4--><!--CUE 4-->
+    <control channel="12" event_type="Note On" control="36">
+        <userio event="click">
+            <cue_point deck_set="Default" deck_id="0" slot_id="4">
+                <translation action_on="any" behaviour="explicit"/>
+            </cue_point>
+        </userio>
+        <userio event="output">
+            <cue_point_set deck_set="Default" deck_id="0" slot_id="4">
+                <translation action_on="any">
+                    <alias name="on" value="20"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </cue_point_set>
+        </userio>
+    </control><!--Left Deck 5--><!--CUE 5-->
+    <control channel="12" event_type="Note On" control="37">
+        <userio event="click">
+            <keylock deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="press" behaviour="toggle"/>
+            </keylock>
+        </userio>
+        <userio event="output">
+            <keylock deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="49"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </keylock>
+        </userio>
+    </control><!--Left Deck 6--><!--KEY LOCK-->
+    <control channel="12" event_type="Note On" control="38">
+        <userio event="click">
+            <key_shift deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="press" behaviour="static" static_value="Down"/>
+            </key_shift>
+        </userio>
+        <userio event="output">
+            <key_shift_feedback deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="39"/>
+                </translation>
+            </key_shift_feedback>
+        </userio>
+    </control><!--Left Deck 7--><!--KEY UP-->
+    <control channel="12" event_type="Note On" control="39">
+        <userio event="click">
+            <key_shift deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="press" behaviour="static" static_value="Up"/>
+            </key_shift>
+        </userio>
+        <userio event="output">
+            <key_shift_feedback deck_set="Default" deck_id="0" slot_id="1">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="37"/>
+                </translation>
+            </key_shift_feedback>
+        </userio>
+    </control><!--Left Deck 8--><!--KEY DOWN-->
+    
+    <control channel="12" event_type="Note On" control="40">
+        <userio event="click">
+            <cue_point_delete deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="press" behaviour="explicit"/>
+            </cue_point_delete>
+        </userio>
+    </control><!--Left Deck Shift 1--><!-- Shift Delete Cue 1 -->
+    <control channel="12" event_type="Note On" control="41">
+        <userio event="click">
+            <cue_point_delete deck_set="Default" deck_id="0" slot_id="1">
+                <translation action_on="press" behaviour="explicit"/>
+            </cue_point_delete>
+        </userio>
+    </control><!--Left Deck Shift 2--><!-- Shift Delete Cue 2 -->
+    <control channel="12" event_type="Note On" control="42">
+        <userio event="click">
+            <cue_point_delete deck_set="Default" deck_id="0" slot_id="2">
+                <translation action_on="press" behaviour="explicit"/>
+            </cue_point_delete>
+        </userio>
+    </control><!--Left Deck Shift 3--><!-- Shift Delete Cue 3 -->
+	<control channel="12" event_type="Note On" control="43">
+        <userio event="click">
+            <cue_point_delete deck_set="Default" deck_id="0" slot_id="3">
+                <translation action_on="press" behaviour="explicit"/>
+            </cue_point_delete>
+        </userio>
+    </control><!--Left Deck Shift 4--><!-- Shift Delete Cue 4 -->
+    <control channel="12" event_type="Note On" control="44">
+        <userio event="click">
+            <cue_point_delete deck_set="Default" deck_id="0" slot_id="4">
+                <translation action_on="press" behaviour="explicit"/>
+            </cue_point_delete>
+        </userio>
+    </control><!--Left Deck Shift 5--><!-- Shift Delete Cue 5 -->
+    <control channel="12" event_type="Note On" control="45">
+    </control><!--Left Deck Shift 6-->
+    <control channel="12" event_type="Note On" control="46">
+    </control><!--Left Deck Shift 7-->
+    <control channel="12" event_type="Note On" control="47">
+    </control><!--Left Deck Shift 8-->
+
+    <control channel="13" event_type="Note On" control="32">
+        <userio event="click">
+            <cue_point deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </cue_point>
+        </userio>
+        <userio event="output">
+            <cue_point_set deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="20"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </cue_point_set>
+        </userio>
+    </control><!--Right Deck  1--><!--CUE 1-->
+    <control channel="13" event_type="Note On" control="33">
+        <userio event="click">
+            <cue_point deck_set="Default" deck_id="1" slot_id="1">
+                <translation action_on="any" behaviour="explicit"/>
+            </cue_point>
+        </userio>
+        <userio event="output">
+            <cue_point_set deck_set="Default" deck_id="1" slot_id="1">
+                <translation action_on="any">
+                    <alias name="on" value="20"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </cue_point_set>
+        </userio>
+    </control><!--Right Deck 2--><!--CUE 2-->
+    <control channel="13" event_type="Note On" control="34">
+        <userio event="click">
+            <cue_point deck_set="Default" deck_id="1" slot_id="2">
+                <translation action_on="any" behaviour="explicit"/>
+            </cue_point>
+        </userio>
+        <userio event="output">
+            <cue_point_set deck_set="Default" deck_id="1" slot_id="2">
+                <translation action_on="any">
+                    <alias name="on" value="20"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </cue_point_set>
+        </userio>
+    </control><!--Right Deck 3--><!--CUE 3-->
+    <control channel="13" event_type="Note On" control="35">
+        <userio event="click">
+            <cue_point deck_set="Default" deck_id="1" slot_id="3">
+                <translation action_on="any" behaviour="explicit"/>
+            </cue_point>
+        </userio>
+        <userio event="output">
+            <cue_point_set deck_set="Default" deck_id="1" slot_id="3">
+                <translation action_on="any">
+                    <alias name="on" value="20"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </cue_point_set>
+        </userio>
+    </control><!--Right Deck 4--><!--CUE 4-->
+    <control channel="13" event_type="Note On" control="36">
+        <userio event="click">
+            <cue_point deck_set="Default" deck_id="1" slot_id="4">
+                <translation action_on="any" behaviour="explicit"/>
+            </cue_point>
+        </userio>
+        <userio event="output">
+            <cue_point_set deck_set="Default" deck_id="1" slot_id="4">
+                <translation action_on="any">
+                    <alias name="on" value="20"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </cue_point_set>
+        </userio>
+    </control><!--Right Deck 5--><!--CUE 5-->
+    <control channel="13" event_type="Note On" control="37">
+        <userio event="click">
+            <keylock deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="press" behaviour="toggle"/>
+            </keylock>
+        </userio>
+        <userio event="output">
+            <keylock deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="49"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </keylock>
+        </userio>
+    </control><!--Right Deck 6--><!--KEY LOCK-->
+    <control channel="13" event_type="Note On" control="38">
+        <userio event="click">
+            <key_shift deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="press" behaviour="static" static_value="Down"/>
+            </key_shift>
+        </userio>
+        <userio event="output">
+            <key_shift_feedback deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="39"/>
+                </translation>
+            </key_shift_feedback>
+        </userio>
+    </control><!--Right Deck 7--><!--KEY UP-->
+    <control channel="13" event_type="Note On" control="39">
+        <userio event="click">
+            <key_shift deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="press" behaviour="static" static_value="Up"/>
+            </key_shift>
+        </userio>
+        <userio event="output">
+            <key_shift_feedback deck_set="Default" deck_id="1" slot_id="1">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="37"/>
+                </translation>
+            </key_shift_feedback>
+        </userio>
+    </control><!--Right Deck 8--><!--KEY DOWN-->
+
+    <control channel="13" event_type="Note On" control="40">
+        <userio event="click">
+            <cue_point_delete deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="press" behaviour="explicit"/>
+            </cue_point_delete>
+        </userio>
+    </control><!--Right Deck Shift 1--><!-- Shift Delete Cue 1 -->
+    <control channel="13" event_type="Note On" control="41">
+        <userio event="click">
+            <cue_point_delete deck_set="Default" deck_id="1" slot_id="1">
+                <translation action_on="press" behaviour="explicit"/>
+            </cue_point_delete>
+        </userio>
+    </control><!--Right Deck Shift 2--><!-- Shift Delete Cue 2 -->
+    <control channel="13" event_type="Note On" control="42">
+        <userio event="click">
+            <cue_point_delete deck_set="Default" deck_id="1" slot_id="2">
+                <translation action_on="press" behaviour="explicit"/>
+            </cue_point_delete>
+        </userio>
+    </control><!--Right Deck Shift 3--><!-- Shift Delete Cue 3-->
+	<control channel="13" event_type="Note On" control="43">
+        <userio event="click">
+            <cue_point_delete deck_set="Default" deck_id="1" slot_id="3">
+                <translation action_on="press" behaviour="explicit"/>
+            </cue_point_delete>
+        </userio>
+    </control><!--Right Deck Shift 4--><!-- Shift Delete Cue 4-->
+    <control channel="13" event_type="Note On" control="44">
+        <userio event="click">
+            <cue_point_delete deck_set="Default" deck_id="1" slot_id="4">
+                <translation action_on="press" behaviour="explicit"/>
+            </cue_point_delete>
+        </userio>
+    </control><!--Right Deck Shift 5--><!-- Shift Delete Cue 5 -->
+    <control channel="13" event_type="Note On" control="45">
+    </control><!--Right Deck Shift 6-->
+    <control channel="13" event_type="Note On" control="46">
+    </control><!--Right Deck Shift 7-->
+    <control channel="13" event_type="Note On" control="47">
+    </control><!--Right Deck Shift 8-->
+<!-- End User Mode  3-->
+
+
+<!-- Hybrid DJ AS-ONE Transpost Mapping - bend up/down, key up/down, key lock, sync on, sync off, play/pause -->
+
+<!--User Mode 4-->
+
+<!-- left left param btn = internal / relative left deck -->
+    <control channel="1" event_type="Note On" control="47">
+        <userio event="click">
+            <dvs_internal_mode deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="press" behaviour="toggle"/>
+            </dvs_internal_mode>
+        </userio>
+        <userio event="output">
+            <dvs_internal_mode deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any">
+                    <alias name="off" value="0"/>
+                    <alias name="on" value="127"/>
+                </translation>
+            </dvs_internal_mode>
+        </userio>
+    </control>
+<!-- right right param btn = internal / relative right deck -->
+    <control channel="2" event_type="Note On" control="55">
+        <userio event="click">
+            <dvs_internal_mode deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="press" behaviour="toggle"/>
+            </dvs_internal_mode>
+        </userio>
+        <userio event="output">
+            <dvs_internal_mode deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="any">
+                    <alias name="off" value="0"/>
+                    <alias name="on" value="127"/>
+                </translation>
+            </dvs_internal_mode>
+        </userio>
+    </control>
+
+
+    <control channel="1" event_type="Note On" control="55">
+        <userio event="click">
+            <instant_double deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="press" behaviour="explicit"/>
+            </instant_double>
+        </userio>
+        <userio event="output">
+            <instant_double deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="0"/>
+                </translation>
+            </instant_double>
+        </userio>
+    </control>
+    <control channel="2" event_type="Note On" control="47">
+        <userio event="click">
+            <instant_double deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="press" behaviour="explicit"/>
+            </instant_double>
+        </userio>
+        <userio event="output">
+            <instant_double deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="0"/>
+                </translation>
+            </instant_double>
+        </userio>
+    </control>
+
+    <!--Left Deck 1--><control channel="12" event_type="Note On" control="48">
+        <userio event="click">
+            <key_shift deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="press" behaviour="static" static_value="Up"/>
+            </key_shift>
+        </userio>
+        <userio event="output">
+            <key_shift_feedback deck_set="Default" deck_id="0" slot_id="1">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="37"/>
+                </translation>
+            </key_shift_feedback>
+        </userio>
+    </control><!--Left Deck 1 END--><!--Key UP--><!--37/127-->
+    <!--Left Deck 2--><control channel="12" event_type="Note On" control="49">
+        <case>
+            <condition>
+                <sync deck_set="Default" deck_id="0" slot_id="0" operator="equal" cmp_value="on"/>
+            </condition>
+            <userio event="click">
+                <sync_off deck_set="Default" deck_id="0" slot_id="0">
+                    <translation action_on="any" behaviour="explicit"/>
+                </sync_off>
+            </userio>
+            <userio event="output">
+                <sync_off deck_set="Default" deck_id="0" slot_id="0">
+                    <translation action_on="any">
+                        <alias name="on" value="127"/>
+                        <alias name="off" value="1"/>
+                    </translation>
+                </sync_off>
+            </userio>
+        </case>
+        <case>
+            <condition>
+                <sync deck_set="Default" deck_id="0" slot_id="0" operator="equal" cmp_value="off"/>
+            </condition>
+                <userio event="click">
+                    <sync deck_set="Default" deck_id="0" slot_id="0">
+                        <translation action_on="any" behaviour="explicit"/>
+                    </sync>
+                </userio>
+                <userio event="output">
+                    <sync deck_set="Default" deck_id="0" slot_id="0">
+                        <translation action_on="any">
+                            <alias name="on" value="1"/>
+                            <alias name="off" value="63"/>
+                        </translation>
+                    </sync>
+                </userio>
+        </case>
+    </control><!--Left Deck 2 END--><!--SYNC ON/OFF--><!--1/127 1/63-->
+    <!--Left Deck 3--><control channel="12" event_type="Note On" control="50">
+        <userio event="click">
+            <pitch_bend_up deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </pitch_bend_up>
+        </userio>
+        <userio event="output">
+            <pitch_bend_or_nudge_up deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="48"/>
+                    <alias name="off" value="0"/>
+                </translation>
+            </pitch_bend_or_nudge_up>
+        </userio>
+    </control><!--Left Deck 3 END--><!--BEND UP--><!--0/48-->
+    <!--Left Deck 4--><control channel="12" event_type="Note On" control="51">
+        <userio event="click">
+            <cue_point deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </cue_point>
+        </userio>
+        <userio event="output">
+            <cue_point_set deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="42"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </cue_point_set>
+        </userio>
+    </control><!--Left Deck 4 END--><!--Cue 1-->
+    <!--Left Deck 5--><control channel="12" event_type="Note On" control="52">
+        <userio event="click">
+            <key_shift deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="press" behaviour="static" static_value="Down"/>
+            </key_shift>
+        </userio>
+        <userio event="output">
+            <key_shift_feedback deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="39"/>
+                </translation>
+            </key_shift_feedback>
+        </userio>
+    </control><!--Left Deck 5 END--><!--KEY DOWN--><!--39/127-->
+    <!--Left Deck 6--><control channel="12" event_type="Note On" control="53">
+        <userio event="click">
+            <keylock deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="press" behaviour="toggle"/>
+            </keylock>
+        </userio>
+        <userio event="output">
+            <keylock deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="49"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </keylock>
+        </userio>
+    </control><!--Left Deck 6 END--><!--KEY LOCK--><!--63/49-->
+    <!--Left Deck 7--><control channel="12" event_type="Note On" control="54">
+        <userio event="click">
+            <pitch_bend_down deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </pitch_bend_down>
+        </userio>
+        <userio event="output">
+            <pitch_bend_or_nudge_down deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="43"/>
+                    <alias name="off" value="0"/>
+                </translation>
+            </pitch_bend_or_nudge_down>
+        </userio>
+    </control><!--Left Deck 7 END--><!--BEND DOWN--><!--0/43-->
+    <!--Left Deck 8--><control channel="12" event_type="Note On" control="55">
+        <userio event="click">
+            <play deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="press" behaviour="toggle"/>
+            </play>
+        </userio>
+        <userio event="output">
+            <play deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="21"/>
+                    <alias name="off" value="64"/>
+                </translation>
+            </play>
+        </userio>
+    </control><!--Left Deck 8 END--><!--INT PLAY--><!--64/41-->
+    
+    <control channel="12" event_type="Note On" control="56">
+    </control><!--Left Deck 1 Shift-->
+    <control channel="12" event_type="Note On" control="57">
+    </control><!--Left Deck 2 Shift-->
+    <control channel="12" event_type="Note On" control="58">
+    </control><!--Left Deck 3 Shift-->
+    <control channel="12" event_type="Note On" control="59">
+        <userio event="click">
+            <cue_point_delete deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="press" behaviour="explicit"/>
+            </cue_point_delete>
+        </userio>
+    </control><!--Left Deck 4 Shift--><!-- Left Deck Cue 1 Delete-->
+    <control channel="12" event_type="Note On" control="60">
+    </control><!--Left Deck 5 Shift-->
+    <control channel="12" event_type="Note On" control="61">
+    </control><!--Left Deck 6 Shift-->
+    <control channel="12" event_type="Note On" control="62">
+    </control><!--Left Deck 7 Shift-->
+    <control channel="12" event_type="Note On" control="63">
+    </control><!--Left Deck 8 Shift-->
+
+
+    <!--Right Deck 1--><control channel="13" event_type="Note On" control="48">
+        <userio event="click">
+            <cue_point deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </cue_point>
+        </userio>
+        <userio event="output">
+            <cue_point_set deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="42"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </cue_point_set>
+        </userio>
+    </control><!--Right Deck 1 END--><!--Cue 1-->
+    <!--Right Deck 2--><control channel="13" event_type="Note On" control="49">
+        <userio event="click">
+            <pitch_bend_up deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </pitch_bend_up>
+        </userio>
+        <userio event="output">
+            <pitch_bend_or_nudge_up deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="48"/>
+                    <alias name="off" value="0"/>
+                </translation>
+            </pitch_bend_or_nudge_up>
+        </userio>
+    </control><!--Right Deck 2 END--><!--BEND UP-->
+    <!--Right Deck 3--><control channel="13" event_type="Note On" control="50">
+        <case>
+            <condition>
+                <sync deck_set="Default" deck_id="1" slot_id="0" operator="equal" cmp_value="on"/>
+            </condition>
+            <userio event="click">
+                <sync_off deck_set="Default" deck_id="1" slot_id="0">
+                    <translation action_on="any" behaviour="explicit"/>
+                </sync_off>
+            </userio>
+            <userio event="output">
+                <sync_off deck_set="Default" deck_id="1" slot_id="0">
+                    <translation action_on="any">
+                        <alias name="on" value="127"/>
+                        <alias name="off" value="1"/>
+                    </translation>
+                </sync_off>
+            </userio>
+        </case>
+        <case>
+            <condition>
+                <sync deck_set="Default" deck_id="1" slot_id="0" operator="equal" cmp_value="off"/>
+            </condition>
+                <userio event="click">
+                    <sync deck_set="Default" deck_id="1" slot_id="0">
+                        <translation action_on="any" behaviour="explicit"/>
+                    </sync>
+                </userio>
+                <userio event="output">
+                    <sync deck_set="Default" deck_id="1" slot_id="0">
+                        <translation action_on="any">
+                            <alias name="on" value="1"/>
+                            <alias name="off" value="63"/>
+                        </translation>
+                    </sync>
+                </userio>
+        </case>
+    </control><!--Right Deck 3 END--><!--SYNC ON / OFF--><!--0/127-->
+    <!--Right Deck 4--><control channel="13" event_type="Note On" control="51">
+        <userio event="click">
+            <key_shift deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="press" behaviour="static" static_value="Up"/>
+            </key_shift>
+        </userio>
+        <userio event="output">
+            <key_shift_feedback deck_set="Default" deck_id="1" slot_id="1">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="37"/>
+                </translation>
+            </key_shift_feedback>
+        </userio>
+    </control><!--Right Deck 4 END--><!--Key UP--><!--37/127-->
+    <!--Right Deck 5--><control channel="13" event_type="Note On" control="52">
+        <userio event="click">
+            <play deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="press" behaviour="toggle"/>
+            </play>
+        </userio>
+        <userio event="output">
+            <play deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="21"/>
+                    <alias name="off" value="64"/>
+                </translation>
+            </play>
+        </userio>
+    </control><!--Right Deck 5 END--><!--INT PLAY--><!--64/41-->
+    <!--Right Deck 6 --><control channel="13" event_type="Note On" control="53">
+        <userio event="click">
+            <pitch_bend_down deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </pitch_bend_down>
+        </userio>
+        <userio event="output">
+            <pitch_bend_or_nudge_down deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="43"/>
+                    <alias name="off" value="0"/>
+                </translation>
+            </pitch_bend_or_nudge_down>
+        </userio>
+    </control><!--Right Deck 6 END--><!--BEND DOWN-->
+    <!--Right Deck 7--><control channel="13" event_type="Note On" control="54">
+        <userio event="click">
+            <keylock deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="press" behaviour="toggle"/>
+            </keylock>
+        </userio>
+        <userio event="output">
+            <keylock deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="49"/>
+                    <alias name="off" value="63"/>
+                </translation>
+            </keylock>
+        </userio>
+    </control><!--Right Deck 7 END--><!--KEY LOCK--><!--63/49-->
+    <!--Right Deck 8--><control channel="13" event_type="Note On" control="55">
+        <userio event="click">
+            <key_shift deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="press" behaviour="static" static_value="Down"/>
+            </key_shift>
+        </userio>
+        <userio event="output">
+            <key_shift_feedback deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="any">
+                    <alias name="on" value="127"/>
+                    <alias name="off" value="39"/>
+                </translation>
+            </key_shift_feedback>
+        </userio>
+    </control><!--Right Deck 8 END--><!--Key DOWN--><!--39/127-->
+      
+    <control channel="13" event_type="Note On" control="56">
+        <userio event="click">
+            <cue_point_delete deck_set="Default" deck_id="1" slot_id="0">
+                <translation action_on="press" behaviour="explicit"/>
+            </cue_point_delete>
+        </userio>
+    </control><!--Right Deck 1 Shift-->
+    <control channel="13" event_type="Note On" control="57">
+    </control><!--Right Deck 2 Shift-->
+    <control channel="13" event_type="Note On" control="58">
+    </control><!--Right Deck 3 Shift-->
+    <control channel="13" event_type="Note On" control="59">
+    </control><!--Right Deck 4 Shift-->
+    <control channel="13" event_type="Note On" control="60">
+    </control><!--Right Deck 5 Shift-->
+    <control channel="13" event_type="Note On" control="61">
+    </control><!--Right Deck 6 Shift-->
+    <control channel="13" event_type="Note On" control="62">
+    </control><!--Right Deck 7 Shift-->
+    <control channel="13" event_type="Note On" control="63">
+    </control><!--Right Deck 8 Shift-->
+<!--User Mode 4 END-->
+</midi>
