@@ -7,7 +7,7 @@ created by dj haveboard https://djhaveboard.com
 **Hey DJs!!** This license basically says you can use this any way you
 want and even sell it but leave the license and credits at the top of the file
 
-Version 1.0.2
+Version 1.0.21
 
 ## MIT License
 
